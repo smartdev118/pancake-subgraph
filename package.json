@@ -1,34 +1,18 @@
 {
   "name": "pancake-subgraph",
-  "description": "PancakeSwap Subgraph",
-  "version": "2.0.0",
-  "private": true,
-  "repository": "git@github.com:pancakeswap/pancake-subgraph.git",
-  "author": "PancakeSwap",
-  "license": "GPL-3.0-or-later",
-  "workspaces": [
-    "subgraphs/**/*"
-  ],
+  "license": "UNLICENSED",
   "scripts": {
-    "codegen": "lerna run codegen",
-    "build": "lerna run build",
-    "format:check": "prettier --check '*/**/*.{js,ts}'",
-    "format:write": "prettier --write '*/**/*.{js,ts}'",
-    "lint": "eslint '*/**/*.{js,ts}'",
-    "prepare": "husky install"
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ cryptowolf421/pancake-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ cryptowolf421/pancake-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ cryptowolf421/pancake-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 cryptowolf421/pancake-subgraph",
+    "test": "graph test"
   },
-  "devDependencies": {
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
-    "@graphprotocol/graph-cli": "^0.21.0",
-    "@graphprotocol/graph-ts": "^0.20.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.0",
-    "@typescript-eslint/parser": "^4.31.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "husky": "^7.0.0",
-    "lerna": "^4.0.0",
-    "prettier": "^2.4.0",
-    "typescript": "^4.3.5"
-  }
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.33.0",
+    "@graphprotocol/graph-ts": "0.27.0"
+  },
+  "devDependencies": { "matchstick-as": "0.5.0" }
 }
